@@ -1,40 +1,15 @@
 <?php
     include 'config.php';
-
-    $result="";
-
-        if(isset($_POST['submit'])){
-            $name=$_POST['name'];
-            $email=$_POST['email'];
-            $phone=$_POST['phone'];
-            $city=$_POST['city'];
-        
-        $sql="INSERT INTO users(name, email, phone, city)VALUES('$name','$email','$phone','$city')";
-        
-        if(mysqli_query($conn,$sql)){
-            $result="One Record Inserted Successfully!";
-        }
-        else{
-//            Para conferir erro na conexão use esse codigo
-//            $result="Something went wrong!".mysqli_error($conn);    
-            
-            $result="Something went wrong!";
-        }
-        
-        
-    }
-
-    function test_input($data){
-        $data=trim($data);
-        $data=stripcslashes($data);
-        $data=htmlspecialchars($data);
-        return $data;
-    }
+    $id=$_GET['id'];
+    $result=mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
+    $row=mysqli_fetch_assoc($result);
 ?>
 
 
+
 <!DOCTYPE html>
-<!--https://www.youtube.com/watch?v=bPZjuV4EdmE&index=1&list=PL6u82dzQtlfsV_n9w_wuhPulddNosaQru-->
+<!--Parei AQUI-->
+<!--https://www.youtube.com/watch?v=C_hNQP8Lh64&list=PL6u82dzQtlfsV_n9w_wuhPulddNosaQru&index=5-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,12 +32,12 @@
    <div class="container">
        <div class="row p-2">
            <div class="col-lg-4 offset-lg-4 bg-light text-dark mt-4 p-3 rounded">
-               <h3 class="text-center p-2">Insert Data Into Database</h3>
+               <h3 class="text-center p-2">Edit & Save In Database</h3>
                <hr class="bg-dark">
                <form action="" method="post">
                   <div class="form-group">
                       <label for="name">Name</label>
-                      <input type="text" name="name" class="form-control" placeholder="Name" required>
+                      <input type="text" name="name" class="form-control" value="<?=row['name']; $?>" required>
                   </div>
                       
                     <div class="form-group">
@@ -81,7 +56,7 @@
                     </div>    
                     
                     <div class="form-group">
-                        <input type="submit" name="submit" value="insert" class="btn-primary btn-block">
+                        <input type="submit" name="submit" value="Update" class="btn-primary btn-block">
                     </div>
                     
                     <div class="form-group text-center">
