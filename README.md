@@ -4,4 +4,4 @@
 
 <a href="https://youtu.be/bPZjuV4EdmE">Youtube Wolfmania</a>
 
-![pg](https://user-images.githubusercontent.com/10427584/40582987-172959c4-615b-11e8-8af1-be9ac1271d8b.png)
+![pg](https://github.com/sanderweb/crudapp/blob/master/bd/screenshot-localhost-2018.08.01-22-50-59.png)
