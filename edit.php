@@ -3,6 +3,21 @@
     $id=$_GET['id'];
     $result=mysqli_query($conn,"SELECT * FROM users WHERE id='$id'");
     $row=mysqli_fetch_assoc($result);
+
+    if(isset($_POST['submit'])){
+        $id=$_GET['id'];
+        $name=$_POST['name'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $city=$_POST['city'];
+        
+        $sql="UPDATE users SET name='$name',email='$email',phone='$phone',city='$city' WHERE id='$id'";
+        
+        if(mysqli_query($conn,$sql)){
+            header("location:view.php");
+        }
+        
+    }
 ?>
 
 
@@ -37,22 +52,22 @@
                <form action="" method="post">
                   <div class="form-group">
                       <label for="name">Name</label>
-                      <input type="text" name="name" class="form-control" value="<?=row['name']; $?>" required>
+                      <input type="text" name="name" class="form-control" value="<?=$row['name']; ?>" required>
                   </div>
                       
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" name="email" class="form-control" placeholder="Email" required>
+                      <input type="email" name="email" class="form-control" value="<?=$row['email']; ?>" required>
                   </div>
                                                        
                     <div class="form-group">
                       <label for="phone">Phone</label>
-                      <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
+                      <input type="tel" name="phone" class="form-control" value="<?=$row['phone']; ?>" required>
                   </div>         
                     
                     <div class="form-group mb-4">
                       <label for="city">City</label>
-                      <input type="text" name="city" class="form-control" placeholder="City" required>
+                      <input type="text" name="city" class="form-control" value="<?=$row['city']; ?>" required>
                     </div>    
                     
                     <div class="form-group">
@@ -60,12 +75,14 @@
                     </div>
                     
                     <div class="form-group text-center">
-                        <a href="view.php" class="text-dark lead">View Records</a>
+                        <a href="index.php" class="text-dark lead">Add Records</a>
                     </div>
                        
+<!--
                     <div class="form-group text-center">
                         <p class="lead"><?= $result; ?></p>
                     </div>   
+-->
                                                         
                </form>
            </div>

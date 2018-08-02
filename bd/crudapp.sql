@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Ago-2018 às 05:21
+-- Generation Time: 02-Ago-2018 às 03:47
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -42,9 +42,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `city`) VALUES
 (1, 'Wolfmania', 'wolfmania@gmail.com', '7845415422', 'Ranchi'),
-(3, 'ju', 'ju@gmail.com', '65468464684', 'nf'),
-(4, 'ju', 'ju@gmail.com', '65468464684', 'nf'),
-(5, 'ju', 'ju@gmail.com', '65468464684', 'nf');
+(4, 'july', 'ju@gmail.com', '65468464684', 'nf');
 
 --
 -- Indexes for dumped tables
